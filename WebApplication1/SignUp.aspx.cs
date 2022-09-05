@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace StudentA
 {
-    public partial class EklePage : System.Web.UI.Page
+    public partial class SignUp : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
