@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using StudentA.Model;
+using System.Linq.Expressions;
 
 namespace StudentA.Repositories
 {
@@ -16,7 +17,12 @@ namespace StudentA.Repositories
 
         public LocalUserRepository()
         {
-            _db = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalUserInformation"].ConnectionString);
+            _db = new SqlConnection(ConfigurationManager.ConnectionStrings["dbconstring"].ConnectionString);
+        }
+        public LocalUser CheckUserPw(string UserName, string Password)
+        {
+            var req = _db.Query<LocalUser>("Select UserName,Password From LocalUser WHERE UserName=@UserName AND Password=@Password", new { UserName = UserName, Password = Password }).FirstOrDefault();
+            return req;
         }
         public List<LocalUser> GetAll()
         {

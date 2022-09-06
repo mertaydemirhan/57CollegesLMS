@@ -1,12 +1,12 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SignUp.aspx.cs" Inherits="StudentA.SignUp" %>
 
 <script runat="server">
-    private object TestData
-    {
-        get
+        private object TestData
         {
-            return new object[]
+            get
             {
+                return new object[]
+                {
                     new object[] {"Adana"},
                     new object[] {"Adiyaman"},
                     new object[] {"Afyon"},
@@ -139,20 +139,20 @@
             new object[] { "West Virginia"},
             new object[] { "Wisconsin"},
             new object[] { "Wyoming"}
-        };
+            };
+            }
         }
-    }
-    protected void Register(object sender, DirectEventArgs e)
-    {
-        var LocUser = new StudentA.Model.LocalUser();
-        //e.Name["test"] = "";
-        var req = (LocUser); //eExtraParams["user"], eExtraParams["pass"]
-        if (req == null)
+        protected void Register(object sender, DirectEventArgs e)
         {
-            e.Success = false;
-            e.ErrorMessage = "Invalid username or password";
+            var LocUser = new StudentA.Model.LocalUser();
+            //e.Name["test"] = "";
+            var req = (LocUser); //eExtraParams["user"], eExtraParams["pass"]
+            if (req == null)
+            {
+                e.Success = false;
+                e.ErrorMessage = "Invalid username or password";
+            }
         }
-    }
 </script>
 
 <!DOCTYPE html>
