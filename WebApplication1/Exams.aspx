@@ -38,7 +38,7 @@
         store.DataSource = this.Data;
         store.DataBind();
     }
-    private object[] Data
+   private object[] Data
     {
         get
         {
@@ -46,7 +46,7 @@
 
             return new object[]
             {
-              
+               
             };
         }
     }
@@ -86,44 +86,124 @@
         </script>
     </ext:XScript>
     <style>
-        #asd {
-           margin-left:1180px;
+       
+        #outercont{
+           margin-top:50px;
+            width:1200px;
+            margin-left:auto;
+            margin-right:auto;
         }
         #GridPanel1{
-            margin-left:150px;
-            margin-top:20px;
+   
+            
+                       border-radius:15px;
+
+        }
+      
+        #gridbox{
+            display:flex;
+            justify-content:center;
+            column-gap:8em;
+        }
+          .x-grid-row-over .x-grid-cell-inner {
+            font-weight : bold;
+        }
+        .profilebox{
+            display:flex;
+        }
+        .profilebox p{
+            font-size:19px;
+            padding-left:12px;
+        }
+        #Image1 {
+             width:200px;
+             float:right;
+        }
+        #profilediv{
+            margin:60px;
+           
         }
        
+       #Button1{
+          float:right;  
+           margin-top:30px;
+           margin-right:80px;
+           padding:10px 20px 10px 20px;
+
+           border-radius:15px;
+           width:100px;
+           height:50px;
+           
+       }
+       .butonhome{
+           background-color:cornflowerblue;
+           border-radius:10px;
+           
+           margin:10px 5px 10px 5px;
+       }
+      /* .butonhome .x-btn-inner{
+           color:black;
+       }
+        .butonhome1 .x-btn-inner{
+           color:black;
+       }*/
+       .butonhome1{
+           background-color:cornflowerblue;
+           border-radius:10px;
+           margin:10px 5px 10px 5px;
+           margin-right:15px;
+
+       }
+       .tulbar{
+           display:flex;
+           background-color:lightgrey;
+           justify-content:space-between;
+       }
+         .tulbar1{
+           display:flex;
+          margin-left:10px;
+       }
+       
     </style>
+       
+  
 </head>
 <body>
     <form runat="server">
         <ext:ResourceManager runat="server" />
 
-
-        <ext:Toolbar runat="server" Fixed="True" >
-            <Items>
-                <ext:Button runat="server" Text="Home" OnDirectClick="HomeClick"/>
-                <ext:Container runat="server" >
-                  
-                </ext:Container>
-                <ext:Button runat="server" Text="Lessons" OnDirectClick="LessonClick" >
+ <div class="tulbar">
+                    <div class="tulbar1">
+                <ext:Button runat="server" Text="Home" Cls="butonhome"   OnDirectClick="HomeClick" />
+            
+                <ext:Button runat="server" Text="Lessons" Cls="butonhome" OnDirectClick="LessonClick">
                   
                     
                 </ext:Button>
-                <ext:Button runat="server" Text="My Exams"  OnDirectClick="Unnamed_Click">
+                <ext:Button runat="server" Text="My Exams" Cls="butonhome" OnDirectClick="Unnamed_Click">
                 </ext:Button>
-                <ext:Button runat="server" Text="Profile" ID="asd" OnDirectClick="ProfileClick">
-                    
+                        </div>
+                <ext:Button runat="server" Text="Account" Cls="butonhome1" Dock="Right"   >
+                  <Menu>
+                        <ext:Menu runat="server" TagString="edit" Width="140">
+                            <Items>
+                                 <ext:Button runat="server" Text="My Profile" OnDirectClick="ProfileClick" height="35" Margin="5">
                 </ext:Button>
-                  
-            </Items>
-        </ext:Toolbar>
-
+                                
+                            </Items>
+                            <Items>
+                                <ext:Button runat="server" Text="Notifications"  height="35" Margin="5" >
+                </ext:Button>
+                            </Items>
+                        </ext:Menu>
+                    </Menu>
+                </ext:Button>
+                  </div>
+        <div id="outercont">
          <ext:GridPanel
             ID="GridPanel1"
             runat="server"
-            Title="Array Grid"
+            Title="Exams"
             Width="1200"
             >
             <Store>
@@ -131,10 +211,10 @@
                     <Model>
                         <ext:Model runat="server">
                             <Fields>
-                                <ext:ModelField Name="company" />
-                                <ext:ModelField Name="price" Type="Float" />
-                                <ext:ModelField Name="change" Type="Float" />
-                                <ext:ModelField Name="pctChange" Type="Float" />
+                                <ext:ModelField Name="Exam Name" />
+                                <ext:ModelField Name="Start Date" Type="Date" />
+                                <ext:ModelField Name="End Date" Type="Date" />
+                                <ext:ModelField Name="Time" Type="Float" />
                                 <ext:ModelField Name="Enter" Type="Object" />
                             </Fields>
                         </ext:Model>
@@ -143,13 +223,12 @@
             </Store>
             <ColumnModel runat="server">
                 <Columns>
-                    <ext:RowNumbererColumn runat="server" Width="35" />
-                    <ext:Column runat="server" Text="Company" DataIndex="company" Flex="1" />
-                    <ext:Column runat="server" Text="Price" Width="75" DataIndex="price">
+                    <ext:Column runat="server" Text="Exam Name" DataIndex="name" Flex="1" />
+                    <ext:Column runat="server" Text="Start Date" Width="175" DataIndex="startdate">
                     </ext:Column>
-                    <ext:Column runat="server" Text="Change" Width="75" DataIndex="change">
+                    <ext:Column runat="server" Text="End Date" Width="175" DataIndex="enddate">
                     </ext:Column>
-                    <ext:Column runat="server" Text="Change" Width="75" DataIndex="pctChange">
+                    <ext:Column runat="server" Text="Time" Width="175" DataIndex="time">
                     </ext:Column>
                     <ext:ComponentColumn runat="server" Text="Enter" DataIndex="Enter">
                         <Component><ext:Button runat="server" Text="Enter Exam">  </ext:Button></Component>
@@ -191,11 +270,12 @@
                 <ext:Toolbar runat="server">
                     <Items>
                         <ext:Button runat="server" Text="Print" Handler="this.up('grid').print();" />
-                        <ext:Button runat="server" Text="Print current grid page" Icon="Printer" Handler="this.up('grid').print({currentPageOnly : true});" />
+                        <ext:Button runat="server" Text="Print current page"  Handler="this.up('grid').print({currentPageOnly : true});" />
                     </Items>
                 </ext:Toolbar>
             </TopBar>
         </ext:GridPanel>
+            </div>
     </form>
     
 </body>

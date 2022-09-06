@@ -3,20 +3,18 @@
 <script runat="server">
     protected void Button1_Click(object sender, DirectEventArgs e)
     {
-        var LocUser = new StudentA.Repositories.LocalUserRepository();
-        var req = LocUser.CheckUserPw(e.ExtraParams["user"], e.ExtraParams["pass"]);
-        if (req == null)
+        //System.Data.SqlClient.SqlConnection con = new System.Data.SqlClient.SqlConnection(System.Web.Configuration.WebConfigurationManager.ConnectionStrings["dbconstring"].ToString());
+
+       // using(IDbConnection conn=new System.Data.SqlClient.SqlConnection("Server=USER-PC\PROGRESS;Database=StudentApp;User Id=sa;Password=02040204;"))
+        // Do some Authentication...
+        if (e.ExtraParams["user"] != "test" || e.ExtraParams["pass"] != "test")
         {
             e.Success = false;
             e.ErrorMessage = "Invalid username or password.";
         }
     }
-    protected void SignUp_Click(object sender, DirectEventArgs e)
-    {
-        Response.Redirect("SignUp.aspx");
-    }
 
-</script>
+</script> 
 
 <!DOCTYPE html>
 
@@ -27,7 +25,7 @@
 
     <script>
         // Invalidate the login fields with the given reason.
-        var invalidateLogin = function (reason) {
+        var invalidateLogin = function(reason) {
             App.txtUsername.setValidation(reason);
             App.txtPassword.setValidation(reason);
             App.txtUsername.validate();
@@ -42,7 +40,7 @@
             });
         };
 
-        var handleLogin = function () {
+        var handleLogin = function() {
             var form = App.Window1.el.up().dom; // Window1 is a direct child of the form element.
 
             App.Window1.close();
@@ -56,7 +54,7 @@
 
         // If we are on IE, we will create a button and click it (at once),
         // so autoComplete is triggered.
-        var handleClientClick = function () {
+        var handleClientClick = function() {
             var form = App.Window1.el.up().dom; // Window1 is a direct child of the form element.
 
             if (Ext.isIE) {
@@ -71,7 +69,7 @@
                     btn = document.createElement("BUTTON");
                     btn.type = "submit";
                     btn.id = "submitButton";
-                    btn.style.display = "none";
+                    btn.style.display="none";
                     form.appendChild(btn);
                 }
 
@@ -83,7 +81,7 @@
             }
         }
 
-        var setForm = function (form, action, target) {
+        var setForm = function(form, action, target) {
             // Back up original settings once per execution.
             if (typeof orgFormAction == 'undefined') {
                 orgFormAction = form.action;
@@ -96,7 +94,7 @@
             form.target = target;
         };
 
-        var restoreForm = function (form) {
+        var restoreForm = function(form) {
             form.action = orgFormAction;
             form.target = orgFormTarget;
         };
@@ -155,22 +153,6 @@
                                 <ext:Parameter Name="user" Value="App.txtUsername.value" Mode="Raw" />
                                 <ext:Parameter Name="pass" Value="App.txtPassword.value" Mode="Raw" />
                             </ExtraParams>
-                        </Click>
-                    </DirectEvents>
-                </ext:Button>
-                <ext:Button
-                    ID="Button2"
-                    runat="server"
-                    Text="Sign Up"
-                    Icon="Add"
-                    FormBind="true"
-                    Handler="handleClientClick">
-                    <DirectEvents>
-                        <Click
-                            OnEvent="SignUp_Click"
-                            Failure="invalidateLogin(result.errorMessage);"
-                            ShowWarningOnFailure="false">
-                            <EventMask ShowMask="true" Msg="Verifying..." MinDelay="1000" />
                         </Click>
                     </DirectEvents>
                 </ext:Button>
