@@ -16,7 +16,10 @@
     {
           Response.Redirect("Profile.aspx");
     }
-
+       protected void EditClick(object sender, EventArgs e)
+    {
+          Response.Redirect("EditStudent.aspx");
+    }
 </script>
 <script runat="server">
     protected void Page_Load(object sender, EventArgs e)
@@ -26,7 +29,7 @@
             this.Store1.DataSource = this.Data;
         }
     }
-
+    
     private object[] Data
     {
         get
@@ -47,17 +50,27 @@
     <link href="/resources/css/examples.css" rel="stylesheet" />
 
     <style>
+        #outercont{
+
+            width:1200px;
+            margin-left:auto;
+            margin-right:auto;
+        }
         #GridPanel1{
-            margin-left:60px;
-            margin-top:20px;
+   
+            
                        border-radius:15px;
 
         }
         #GridPanel2{
-            margin-right:60px;
                        border-radius:15px;
 
-            float:right;
+            
+        }
+        #gridbox{
+            display:flex;
+            justify-content:center;
+            column-gap:8em;
         }
           .x-grid-row-over .x-grid-cell-inner {
             font-weight : bold;
@@ -77,18 +90,45 @@
             margin:60px;
            
         }
-        #asd {
-           margin-left:1180px;
-        }
+       
        #Button1{
-           position:absolute;
-           margin-left:1370px;
-           margin-top:50px;
+          float:right;  
+           margin-top:30px;
+           margin-right:80px;
            padding:10px 20px 10px 20px;
+
            border-radius:15px;
            width:100px;
            height:50px;
            
+       }
+       .butonhome{
+           background-color:cornflowerblue;
+           border-radius:10px;
+           
+           margin:10px 5px 10px 5px;
+       }
+      /* .butonhome .x-btn-inner{
+           color:black;
+       }
+        .butonhome1 .x-btn-inner{
+           color:black;
+       }*/
+       .butonhome1{
+           background-color:cornflowerblue;
+           border-radius:10px;
+           margin:10px 5px 10px 5px;
+           margin-right:15px;
+
+       }
+       .tulbar{
+           display:flex;
+           background-color:lightgrey;
+           justify-content:space-between;
+       }
+         .tulbar1{
+           display:flex;
+          margin-left:10px;
        }
     </style>
      <script>
@@ -104,28 +144,42 @@
      </script>
 </head>
 <body>
+
+                <div class="tulbar">
+                    <div class="tulbar1">
+                <ext:Button runat="server" Text="Home" Cls="butonhome"   OnDirectClick="HomeClick" />
+            
+                <ext:Button runat="server" Text="Lessons" Cls="butonhome" OnDirectClick="LessonClick">
+                  
+                    
+                </ext:Button>
+                <ext:Button runat="server" Text="My Exams" Cls="butonhome" OnDirectClick="Unnamed_Click">
+                </ext:Button>
+                        </div>
+                <ext:Button runat="server" Text="Account" Cls="butonhome1" Dock="Right"   >
+                  <Menu>
+                        <ext:Menu runat="server" TagString="edit" Width="140">
+                            <Items>
+                                 <ext:Button runat="server" Text="My Profile" OnDirectClick="ProfileClick" height="35" Margin="5">
+                </ext:Button>
+                                
+                            </Items>
+                            <Items>
+                                <ext:Button runat="server" Text="Notifications"  height="35" Margin="5" >
+                </ext:Button>
+                            </Items>
+                        </ext:Menu>
+                    </Menu>
+                </ext:Button>
+                  </div>
+    
+    <div id="outercont">
+
     <form runat="server">
         <ext:ResourceManager runat="server" />
 
 
-        <ext:Toolbar runat="server" Fixed="True" >
-            <Items>
-                <ext:Button runat="server" Text="Home"   OnDirectClick="HomeClick" />
-                <ext:Container runat="server" >
-                  
-                </ext:Container>
-                <ext:Button runat="server" Text="Lessons" OnDirectClick="LessonClick">
-                  
-                    
-                </ext:Button>
-                <ext:Button runat="server" Text="My Exams" OnDirectClick="Unnamed_Click">
-                </ext:Button>
-                <ext:Button runat="server" Text="Profile" ID="asd" OnDirectClick="ProfileClick">
-                  
-                </ext:Button>
-                  
-            </Items>
-        </ext:Toolbar>
+        
         
     <div id="profilediv">
           <ext:Image
@@ -145,11 +199,12 @@
             </div>
         
     </form>
+    <div id="gridbox">
     <ext:GridPanel
         ID="GridPanel2"
         runat="server"
-        Title="Coming Exams"
-        Width="700"
+        Title="Incoming Exams"
+        Width="500"
         Height="300">
         <Store>
             <ext:Store ID="Store2" runat="server">
@@ -160,26 +215,26 @@
                             <ext:ModelField Name="Start Date" Type="Date" />
                             <ext:ModelField Name="End Date" Type="Date" />
                             <ext:ModelField Name="Time" Type="Float" />
-                            <ext:ModelField Name="Ene" Type="Date" DateFormat="M/d hh:mmtt" />
+                                                            <ext:ModelField Name="Enter" Type="Object" />
+
                         </Fields>
                     </ext:Model>
                 </Model>
             </ext:Store>
         </Store>
         <ColumnModel>
-            <Columns>
-                <ext:Column runat="server" Text="Company" DataIndex="company" Flex="1" />
-                <ext:Column runat="server" Text="Price" DataIndex="price">
-                    <Renderer Format="UsMoney" />
-                </ext:Column>
-                <ext:Column runat="server" Text="Change" DataIndex="change">
-                    <Renderer Fn="change" />
-                </ext:Column>
-                <ext:Column runat="server" Text="Change" DataIndex="pctChange">
-                    <Renderer Fn="pctChange" />
-                </ext:Column>
-                <ext:DateColumn runat="server" Text="Last Updated" DataIndex="lastChange" Width="120" />
-            </Columns>
+           <Columns>
+                    <ext:Column runat="server" Text="Exam Name" DataIndex="name"  />
+                    <ext:Column runat="server" Text="Start Date"  DataIndex="startdate">
+                    </ext:Column>
+                    <ext:Column runat="server" Text="End Date"  DataIndex="enddate">
+                    </ext:Column>
+                    <ext:Column runat="server" Text="Time"  DataIndex="time">
+                    </ext:Column>
+                    <ext:ComponentColumn runat="server" Text="Enter" DataIndex="Enter">
+                        <Component><ext:Button runat="server" Text="Enter Exam">  </ext:Button></Component>
+                    </ext:ComponentColumn>
+                </Columns>
         </ColumnModel>
         <SelectionModel>
             <ext:RowSelectionModel runat="server" />
@@ -189,47 +244,47 @@
       <ext:GridPanel
         ID="GridPanel1"
         runat="server"
-        Title="Coming Classes"
-        Width="700"
+        Title="Incoming Lessons"
+                  Width="500"
+
         Height="300">
         <Store>
             <ext:Store ID="Store1" runat="server">
                 <Model>
                     <ext:Model runat="server">
-                        <Fields>
-                            <ext:ModelField Name="company" />
-                            <ext:ModelField Name="price" Type="Float" />
-                            <ext:ModelField Name="change" Type="Float" />
-                            <ext:ModelField Name="pctChange" Type="Float" />
-                            <ext:ModelField Name="lastChange" Type="Date" DateFormat="M/d hh:mmtt" />
-                        </Fields>
+                       <Fields>
+                               <ext:ModelField Name="Lesson Name" />
+                                <ext:ModelField Name="Start Date" Type="Date" />
+                                <ext:ModelField Name="End Date" Type="Date" />
+                                <ext:ModelField Name="Time" Type="Float" />
+                                <ext:ModelField Name="Class" Type="String" />
+                            </Fields>
                     </ext:Model>
                 </Model>
             </ext:Store>
         </Store>
         <ColumnModel>
             <Columns>
-                <ext:Column runat="server" Text="Company" DataIndex="company" Flex="1" />
-                <ext:Column runat="server" Text="Price" DataIndex="price">
-                    <Renderer Format="UsMoney" />
-                </ext:Column>
-                <ext:Column runat="server" Text="Change" DataIndex="change">
-                    <Renderer Fn="change" />
-                </ext:Column>
-                <ext:Column runat="server" Text="Change" DataIndex="pctChange">
-                    <Renderer Fn="pctChange" />
-                </ext:Column>
-                <ext:DateColumn runat="server" Text="Last Updated" DataIndex="lastChange" Width="120" />
-
-            </Columns>
+                      <ext:Column runat="server" Text="Lesson Name" DataIndex="name"  />
+                    <ext:Column runat="server" Text="Start Date"  DataIndex="startdate">
+                    </ext:Column>
+                    <ext:Column runat="server" Text="End Date"  DataIndex="enddate">
+                    </ext:Column>
+                    <ext:Column runat="server" Text="Time" DataIndex="time">
+                    </ext:Column>
+                    <ext:Column runat="server" Text="Class"  DataIndex="time">
+                    </ext:Column>
+                </Columns>
         </ColumnModel>
         <SelectionModel>
             <ext:RowSelectionModel runat="server" />
         </SelectionModel>
         
     </ext:GridPanel>
-    <ext:Button runat="server" Text="Edit" ID="Button1" CtCls="Button1" >
+    </div>
+    <ext:Button runat="server" Text="Edit" ID="Button1" CtCls="Button1" OnDirectClick="EditClick" >
                   
                 </ext:Button>
+        </div>
 </body>
 </html>
