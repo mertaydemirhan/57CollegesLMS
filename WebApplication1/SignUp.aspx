@@ -7,71 +7,150 @@
         {
             return new object[]
             {
-
-
-                new object[] { "AL", "Alabama", "The Heart of Dixie" },
-                new object[] { "AK", "Alaska", "The Land of the Midnight Sun" },
-                new object[] { "AZ", "Arizona", "The Grand Canyon State" },
-                new object[] { "AR", "Arkansas", "The Natural State" },
-                new object[] { "CA", "California", "The Golden State" },
-                new object[] { "CO", "Colorado", "The Mountain State" },
-                new object[] { "CT", "Connecticut", "The Constitution State" },
-                new object[] { "DE", "Delaware", "The First State" },
-                new object[] { "DC", "District of Columbia", "The Nation's Capital" },
-                new object[] { "FL", "Florida", "The Sunshine State" },
-                new object[] { "GA", "Georgia", "The Peach State" },
-                new object[] { "HI", "Hawaii", "The Aloha State" },
-                new object[] { "ID", "Idaho", "Famous Potatoes" },
-                new object[] { "IL", "Illinois", "The Prairie State" },
-                new object[] { "IN", "Indiana", "The Hospitality State" },
-                new object[] { "IA", "Iowa", "The Corn State" }, 
-                new object[] { "KS", "Kansas", "The Sunflower State" },
-                new object[] { "KY", "Kentucky", "The Bluegrass State" },
-                new object[] { "LA", "Louisiana", "The Bayou State" },
-                new object[] { "ME", "Maine", "The Pine Tree State" },
-                new object[] { "MD", "Maryland", "Chesapeake State" },
-                new object[] { "MA", "Massachusetts", "The Spirit of America" },
-                new object[] { "MI", "Michigan", "Great Lakes State" },
-                new object[] { "MN", "Minnesota", "North Star State" },
-                new object[] { "MS", "Mississippi", "Magnolia State" },
-                new object[] { "MO", "Missouri", "Show Me State" },
-                new object[] { "MT", "Montana", "Big Sky Country" },
-                new object[] { "NE", "Nebraska", "Beef State" },
-                new object[] { "NV", "Nevada", "Silver State" },
-                new object[] { "NH", "New Hampshire", "Granite State" },
-                new object[] { "NJ", "New Jersey", "Garden State" },
-                new object[] { "NM", "New Mexico", "Land of Enchantment" },
-                new object[] { "NY", "New York", "Empire State" },
-                new object[] { "NC", "North Carolina", "First in Freedom" },
-                new object[] { "ND", "North Dakota", "Peace Garden State" },
-                new object[] { "OH", "Ohio", "The Heart of it All" },
-                new object[] { "OK", "Oklahoma", "Oklahoma is OK" },
-                new object[] { "OR", "Oregon", "Pacific Wonderland" },
-                new object[] { "PA", "Pennsylvania", "Keystone State" },
-                new object[] { "RI", "Rhode Island", "Ocean State" },
-                new object[] { "SC", "South Carolina", "Nothing Could be Finer" },
-                new object[] { "SD", "South Dakota", "Great Faces, Great Places" },
-                new object[] { "TN", "Tennessee", "Volunteer State" },
-                new object[] { "TX", "Texas", "Lone Star State" },
-                new object[] { "UT", "Utah", "Salt Lake State" },
-                new object[] { "VT", "Vermont", "Green Mountain State" },
-                new object[] { "VA", "Virginia", "Mother of States" },
-                new object[] { "WA", "Washington", "Green Tree State" },
-                new object[] { "WV", "West Virginia", "Mountain State" },
-                new object[] { "WI", "Wisconsin", "America's Dairyland" },
-                new object[] { "WY", "Wyoming", "Like No Place on Earth" }
-            };
+                    new object[] {"Adana"},
+                    new object[] {"Adiyaman"},
+                    new object[] {"Afyon"},
+                    new object[] {"Agri"},
+                    new object[] {"Aksaray"},
+                    new object[] {"Amasya"},
+                    new object[] {"Ankara"},
+                    new object[] {"Antalya"},
+                    new object[] {"Ardahan"},
+                    new object[] {"Artvin"},
+                    new object[] {"Aydin"},
+                    new object[] {"Balikesir"},
+                    new object[] {"Bartin"},
+                    new object[] {"Batman"},
+                    new object[] {"Bayburt"},
+                    new object[] {"Bilecik"},
+                    new object[] {"Bingol"},
+                    new object[] {"Bitlis"},
+                    new object[] {"Bolu"},
+                    new object[] {"Burdur"},
+                    new object[] {"Bursa"},
+                    new object[] {"Canakkale"},
+                    new object[] {"Cankiri"},
+                    new object[] {"Corum"},
+                    new object[] {"Denizli"},
+                    new object[] {"Diyarbakir"},
+                    new object[] {"Duzce"},
+                    new object[] {"Edirne"},
+                    new object[] {"Elazig"},
+                    new object[] {"Erzincan"},
+                    new object[] {"Erzurum"},
+                    new object[] {"Eskisehir"},
+                    new object[] {"Gaziantep"},
+                    new object[] {"Giresun"},
+                    new object[] {"Gumushane"},
+                    new object[] {"Hakkari"},
+                    new object[] {"Hatay"},
+                    new object[] {"Igdir"},
+                    new object[] {"Isparta"},
+                    new object[] {"Istanbul"},
+                    new object[] {"Izmir"},
+                    new object[] {"Kahramanmaras"},
+                    new object[] {"Karabuk"},
+                    new object[] {"Karaman"},
+                    new object[] {"Kars"},
+                    new object[] {"Kastamonu"},
+                    new object[] {"Kayseri"},
+                    new object[] {"Kilis"},
+                    new object[] {"Kirikkale"},
+                    new object[] {"Kirklareli"},
+                    new object[] {"Kirsehir"},
+                    new object[] {"Kocaeli"},
+                    new object[] {"Konya"},
+                    new object[] {"Kutahya"},
+                    new object[] {"Malatya"},
+                    new object[] {"Manisa"},
+                    new object[] {"Mardin"},
+                    new object[] {"Mersin"},
+                    new object[] {"Mugla"},
+                    new object[] {"Mus"},
+                    new object[] {"Nevsehir"},
+                    new object[] {"Nigde"},
+                    new object[] {"Ordu"},
+                    new object[] {"Osmaniye"},
+                    new object[] {"Rize"},
+                    new object[] {"Sakarya"},
+                    new object[] {"Samsun"},
+                    new object[] {"Sanliurfa"},
+                    new object[] {"Siirt"},
+                    new object[] {"Sinop"},
+                    new object[] {"Sirnak"},
+                    new object[] {"Sivas"},
+                    new object[] {"Tekirdag"},
+                    new object[] {"Tokat"},
+                    new object[] {"Trabzon"},
+                    new object[] {"Tunceli"},
+                    new object[] {"Usak"},
+                    new object[] {"Van"},
+                    new object[] {"Yalova"},
+                    new object[] {"Yozgat"},
+                    new object[] {"Zonguldak" },
+            new object[] { "Alabama"},
+            new object[] { "Alaska"},
+            new object[] { "Arizona"},
+            new object[] { "Arkansas"},
+            new object[] { "California"},
+            new object[] { "Colorado"},
+            new object[] { "Connecticut"},
+            new object[] { "Delaware"},
+            new object[] { "District of Columbia"},
+            new object[] { "Florida"},
+            new object[] { "Georgia"},
+            new object[] { "Hawaii"},
+            new object[] { "Idaho"},
+            new object[] { "Illinois"},
+            new object[] { "Indiana"},
+            new object[] { "Iowa"},
+            new object[] { "Kansas"},
+            new object[] { "Kentucky"},
+            new object[] { "Louisiana"},
+            new object[] { "Maine"},
+            new object[] { "Maryland"},
+            new object[] { "Massachusetts"},
+            new object[] { "Michigan"},
+            new object[] { "Minnesota"},
+            new object[] { "Mississippi"},
+            new object[] { "Missouri"},
+            new object[] { "Montana"},
+            new object[] { "Nebraska"},
+            new object[] { "Nevada"},
+            new object[] { "New Hampshire"},
+            new object[] { "New Jersey"},
+            new object[] { "New Mexico"},
+            new object[] { "New York"},
+            new object[] { "North Carolina"},
+            new object[] { "North Dakota"},
+            new object[] { "Ohio"},
+            new object[] { "Oklahoma"},
+            new object[] { "Oregon"},
+            new object[] { "Pennsylvania"},
+            new object[] { "Rhode Island"},
+            new object[] { "South Carolina"},
+            new object[] { "South Dakota"},
+            new object[] { "Tennessee"},
+            new object[] { "Texas"},
+            new object[] { "Utah"},
+            new object[] { "Vermont"},
+            new object[] { "Virginia"},
+            new object[] { "Washington"},
+            new object[] { "West Virginia"},
+            new object[] { "Wisconsin"},
+            new object[] { "Wyoming"}
+        };
         }
     }
-      protected void Register(object sender, DirectEventArgs e)
+    protected void Register(object sender, DirectEventArgs e)
     {
         var LocUser = new StudentA.Model.LocalUser();
-            e.Name[""]
-        var req = (LocUser); //e.ExtraParams["user"], e.ExtraParams["pass"]
+        //e.Name["test"] = "";
+        var req = (LocUser); //eExtraParams["user"], eExtraParams["pass"]
         if (req == null)
         {
             e.Success = false;
-            e.ErrorMessage = "Invalid username or password.";
+            e.ErrorMessage = "Invalid username or password";
         }
     }
 </script>
@@ -80,8 +159,8 @@
 
 <html>
 <head runat="server">
-    <title>Register Form - Ext.NET Examples</title>
-    <link href="/resources/css/examples.css" rel="stylesheet" />
+    <title>Register Form - ExtNET Examples</title>
+    <link href="/resources/css/examplescss" rel="stylesheet" />
 </head>
 <body>
     <ext:ResourceManager runat="server" />
@@ -149,15 +228,13 @@
                                 ValueField="abbr"
                                 QueryMode="Local"
                                 TypeAhead="true"
-                                EmptyText="Select a state...">
+                                EmptyText="Select a state">
                                 <Store>
                                     <ext:Store runat="server" Data="<%# TestData %>" AutoDataBind="true">
                                         <Model>
                                             <ext:Model runat="server">
                                                 <Fields>
-                                                    <ext:ModelField Name="abbr" />
                                                     <ext:ModelField Name="name" />
-                                                    <ext:ModelField Name="slogan" />
                                                 </Fields>
                                             </ext:Model>
                                         </Model>
@@ -184,8 +261,8 @@
                         runat="server"
                         Text="Register"
                         Disabled="true"
-                        FormBind="true" 
-                        OnEvent="Register()"/>
+                        FormBind="true"
+                        OnEvent="Register()" />
                 </Buttons>
             </ext:FormPanel>
         </Items>
